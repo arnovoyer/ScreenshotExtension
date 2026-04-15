@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Screenshot to Mockup",
+  "version": "1.0.0",
+  "description": "Capture den sichtbaren Bereich und verwandle ihn in ein exportierbares Mockup.",
+  "permissions": ["activeTab", "tabs", "downloads", "storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Screenshot to Mockup"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "screenshot-to-mockup@example.com"
+    }
+  }
+}
