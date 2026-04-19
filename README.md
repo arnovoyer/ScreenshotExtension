@@ -28,15 +28,6 @@ Eine Firefox-Erweiterung (Manifest V3), die den sichtbaren Bereich eines Tabs al
 - `editor.js`: Rendering-Logik (Canvas), Styling-Optionen, PNG-Export
 - `content.js`: Altbestand aus vorheriger Version (aktuell nicht notwendig fuer den Screenshot-Flow)
 
-## Technischer Ablauf
-
-1. In Popup auf "Screenshot erfassen" klicken.
-2. `popup.js` sendet eine `START_CAPTURE`-Message an den Hintergrundprozess.
-3. `background.js` nutzt `browser.tabs.captureVisibleTab(...)` und speichert die Bilddaten temporaer in `browser.storage.session` (Fallback: `browser.storage.local`).
-4. `background.js` oeffnet `editor.html` mit Capture-ID in der URL.
-5. `editor.js` laedt die Bilddaten, rendert das Mockup auf Canvas und entfernt den temporaeren Speicher-Eintrag.
-6. Export per `browser.downloads.download(...)` als PNG.
-
 ## Installation (Temporar in Firefox)
 
 1. Firefox oeffnen.
@@ -86,11 +77,3 @@ Loesung:
 
 - Pruefen, ob die Permission `downloads` in `manifest.json` gesetzt ist.
 - Download-Popup von Firefox erlauben.
-
-## Weiterentwicklungsideen
-
-- Presets (z. B. Product Hunt, Hero Header, Social Preview)
-- Zoom/Scale-Control im Editor
-- Einfuegen von Text-Overlays und Badges
-- Multi-Capture-Historie
-- Optionaler Dark-Frame-Mode
